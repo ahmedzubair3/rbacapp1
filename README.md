@@ -18,6 +18,7 @@ make run_task3
 Note:
 
 all the outputs are going to get generated in ./data
+
 logs can be found in ./logs
 
 ### cleanup:
