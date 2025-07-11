@@ -8,6 +8,13 @@ make up;
 
 got to http://localhost:5000/healthcheck
 
+### task2:
+
+please go to task2 folder. it has similar setup as this. brand new.
+I used docker images as containers and setup the system.
+I added some helpful commands in readme.
+
+
 ### task3:
 --
 

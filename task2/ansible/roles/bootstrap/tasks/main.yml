@@ -1,0 +1,20 @@
+- name: Update apt and install openssh-server
+  apt:
+    name: openssh-server
+    state: present
+    update_cache: yes
+
+- name: Start SSH service
+  shell: service ssh start
+
+- name: Set root password
+  shell: echo "root:root" | chpasswd
+
+- name: Permit root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PermitRootLogin'
+    line: 'PermitRootLogin yes'
+
+- name: Restart SSH
+  shell: service ssh restart

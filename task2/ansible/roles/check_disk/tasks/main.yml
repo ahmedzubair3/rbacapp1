@@ -1,0 +1,11 @@
+- name: Get disk usage
+  shell: df -h /
+  register: disk_usage
+
+- name: Alert if disk > 80%
+  mail:
+    host: localhost
+    to: admin@example.com
+    subject: "Disk Alert on {{ inventory_hostname }}"
+    body: "{{ disk_usage.stdout }}"
+  when: disk_usage.stdout | regex_search('[8-9][0-9]%')

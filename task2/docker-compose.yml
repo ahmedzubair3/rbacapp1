@@ -1,0 +1,48 @@
+services:
+  httpd:
+    build: ./services
+    container_name: httpd
+    command: [ "bash", "/app/entrypoint.sh" ]
+    volumes:
+      - ./services/entrypoint.sh:/app/entrypoint.sh
+    networks:
+      net:
+        ipv4_address: 172.28.0.2
+
+  postgres:
+    build: ./services
+    container_name: postgres
+    command: [ "bash", "/app/entrypoint.sh" ]
+    volumes:
+      - ./services/entrypoint.sh:/app/entrypoint.sh
+    networks:
+      net:
+        ipv4_address: 172.28.0.3
+
+  rabbitmq:
+    build: ./services
+    container_name: rabbitmq
+    command: [ "bash", "/app/entrypoint.sh" ]
+    volumes:
+      - ./services/entrypoint.sh:/app/entrypoint.sh
+    networks:
+      net:
+        ipv4_address: 172.28.0.4
+
+  ansible:
+    build: ./ansible
+    container_name: ansible
+    command: [ "bash", "-c", "sleep infinity" ]
+    volumes:
+      - ./ansible:/ansible
+      - ./inventory:/inventory
+    working_dir: /ansible
+    networks:
+      net:
+        ipv4_address: 172.28.0.10
+
+networks:
+  net:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

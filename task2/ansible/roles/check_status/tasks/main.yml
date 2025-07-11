@@ -1,0 +1,10 @@
+- name: Check Apache status
+  shell: systemctl is-active apache2
+  register: status
+  ignore_errors: yes
+  when: inventory_hostname in groups['httpd']
+
+- name: Show status
+  debug:
+    msg: "Apache status: {{ status.stdout }}"
+  when: inventory_hostname in groups['httpd']

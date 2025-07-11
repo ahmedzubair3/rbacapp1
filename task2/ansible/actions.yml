@@ -1,0 +1,6 @@
+- name: Run dynamic task
+  hosts: all
+  become: yes
+  gather_facts: yes
+  roles:
+    - "{{ action }}"

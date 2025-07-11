@@ -1,0 +1,17 @@
+- name: Install apache2
+  apt:
+    name: apache2
+    state: present
+  when: inventory_hostname in groups['httpd']
+
+- name: Install postgresql
+  apt:
+    name: postgresql
+    state: present
+  when: inventory_hostname in groups['postgres']
+
+- name: Install rabbitmq-server
+  apt:
+    name: rabbitmq-server
+    state: present
+  when: inventory_hostname in groups['rabbitmq']
