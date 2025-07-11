@@ -42,16 +42,6 @@ make action ACTION=check_disk
 
 ---
 
-## Health Check
-
-After starting the environment, verify the service is healthy by visiting:
-
-```
-http://localhost:5000/healthcheck
-```
-
----
-
 ## Cleanup
 
 To stop and remove all containers and resources, run:
