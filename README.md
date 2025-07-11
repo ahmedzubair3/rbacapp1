@@ -1,34 +1,63 @@
-### task1:
---
+# Project Setup and Usage Guide
 
-run
+This document provides instructions for setting up, running, and managing the project.
+
+---
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/get-started) installed
+- [Make](https://www.gnu.org/software/make/) installed
+
+---
+
+## Task 1: Start the Application
+
+To start the application, run:
+
 ```sh
-make up;
+make up
 ```
 
-got to http://localhost:5000/healthcheck
+Once the containers are running, verify the service is healthy by visiting:
 
-### task2:
+```
+http://localhost:5000/healthcheck
+```
 
-please go to task2 folder. it has similar setup as this. brand new.
-I used docker images as containers and setup the system.
-I added some helpful commands in readme.
+---
 
+## Task 2: Additional Setup
 
-### task3:
---
+Navigate to the `task2` directory for a similar but independent setup. This folder contains its own Docker-based environment and a dedicated README with helpful commands and instructions.
+
+---
+
+## Task 3: Run Task 3
+
+To execute Task 3, use:
 
 ```sh
 make run_task3
 ```
 
-Note:
+---
 
-all the outputs are going to get generated in ./data
+## Output and Logs
 
-logs can be found in ./logs
+- All generated outputs are stored in the `./data` directory.
+- Logs are available in the `./logs` directory.
 
-### cleanup:
-```shell
+---
+
+## Cleanup
+
+To stop and remove all containers and associated resources, run:
+
+```sh
 make down
 ```
+
+---
+
+For further details, refer to the individual README files in each task directory.
